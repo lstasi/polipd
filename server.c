@@ -164,7 +164,7 @@ int server(struct root *ptrroot,struct grupos *ptrgrp,struct clientes *ptrcli)
 		sprintf(mensaje,"Report"); 
 	        rst=sendto(socketout,mensaje,strlen(mensaje),0,(struct sockaddr *)&addrout,sizeof(addrout)); 
 		memset(mensaje,'\0',sizeof(*mensaje));
-	        //statcli->pstats=0;
+	        statcli->pstats=0;
 	     }
 	     else{
 		     sprintf(tmp,"%s/%d/%d ",statcli->ip,statcli->speed,rate(statcli->rate)/8);
