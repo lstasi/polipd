@@ -96,6 +96,12 @@ int server(struct root *ptrroot,struct grupos *ptrgrp,struct clientes *ptrcli)
  
  //Wile infinito que espera paqutes upd
  
+ //Ask For Report before start
+  sprintf(mensaje,"Report"); 
+  rst=sendto(socketout,mensaje,strlen(mensaje),0,(struct sockaddr *)&addrout,sizeof(addrout)); 
+  memset(mensaje,'\0',sizeof(*mensaje));
+  
+  
  while (1)
  {
   tiempo.tv_sec=1;
@@ -104,6 +110,7 @@ int server(struct root *ptrroot,struct grupos *ptrgrp,struct clientes *ptrcli)
   FD_SET(socketin,&set);
   
   rst=select(FD_SETSIZE,&set,NULL,NULL,&tiempo);
+  
   
   if(rst==1)					//Recibi datos
   {
@@ -128,6 +135,7 @@ int server(struct root *ptrroot,struct grupos *ptrgrp,struct clientes *ptrcli)
    }
    
    //Busco estadisticas 
+   memset(mensaje,'\0',sizeof(*mensaje));
    
    statcli=ptrcli;
    
@@ -137,10 +145,11 @@ int server(struct root *ptrroot,struct grupos *ptrgrp,struct clientes *ptrcli)
     	}
 	statcli=statcli->nxt;
    } 
-
+   
+   
+   
    if(statcli!=NULL) //Empiezo desde el primero que encontre en el While anterior
    {
-            
       memset(mensaje,'\0',sizeof(*mensaje));
       sprintf(mensaje,"%d ",rate(ptrroot->linkspeed)/8);
       stats(ptrcli,ptrroot);
@@ -149,8 +158,13 @@ int server(struct root *ptrroot,struct grupos *ptrgrp,struct clientes *ptrcli)
 	   {
 	    if(statcli->pstats==1)
 	    {
-	     if(difftime(time(NULL),statcli->tstats)>300){
-	      statcli->pstats=0;
+	     if(difftime(time(NULL),statcli->tstats)>600){
+		//printf("DifTime: %d",difftime(time(NULL),statcli->tstats));
+		//If has been 5 min ask for report
+		sprintf(mensaje,"Report"); 
+	        rst=sendto(socketout,mensaje,strlen(mensaje),0,(struct sockaddr *)&addrout,sizeof(addrout)); 
+		memset(mensaje,'\0',sizeof(*mensaje));
+	        //statcli->pstats=0;
 	     }
 	     else{
 		     sprintf(tmp,"%s/%d/%d ",statcli->ip,statcli->speed,rate(statcli->rate)/8);
