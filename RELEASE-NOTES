@@ -14,9 +14,7 @@ http://luxik.cdi.cz/~devik/qos/htb/
 
 You probably will have to patch iproute2 too the patch it
 is include in the htb3 tar file.
+
 If you have kernel 2.4.20 you don't have to patch 
 anything.
 
-To compile polipconfig you need newt-.0.51.0-1
-To compile polipconfig you need newt-devel.0.51.0-1
-To complie polipd you need popt-devel-1.6.3-10

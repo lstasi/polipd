@@ -19,16 +19,25 @@ newt
 newt-devel
 slang
 slang-devel
+that you can get from rpmfind.net
 
-You aslo will need to copy de initd-script and
-add the route to multicast
+You also will need to copy de initd-script to run 
+the daemon there is a Red Hat script "polipd" and a
+generic one. 
+
+and
+
+Add the route to multicast with this command
 
 route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0
 
-eth0 or the device for the local network
+where "eth0" or the device for the local network
 
 Don't Forget to patch the kernel for HTB3
 
+you can get HTB3 patch from
+
+http://luxik.cdi.cz/~devik/qos/htb/
 
 It will install polipd and polipconfig in /usr/bin
 
