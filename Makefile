@@ -5,8 +5,8 @@ all:	polipd polipconfig
 
 debug:	polipdd
 
-polipd:		polipd.o readconf.o setup.o server.o stats.o  poliputil.o check.o
-	$(CC)  -o polipd polipd.o readconf.o setup.o server.o stats.o poliputil.o check.o -lpopt 
+polipd:		polipd.o readconf.o setup.o server.o stats.o  poliputil.o
+	$(CC)  -o polipd polipd.o readconf.o setup.o server.o stats.o poliputil.o -lpopt 
 
 polipdd:	polipd.o readconf.o setup.o server.o stats.o poliputil.o check.o
 	$(CC)	-g polipd.c readconf.c setup.c server.c stats.c poliputil.o -o polipd check.o

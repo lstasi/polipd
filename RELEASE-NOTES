@@ -1,17 +1,21 @@
 ==================================================
-REALEASE NOTES PARA Pol-IP 1.0
+REALEASE NOTES For  Pol-IPd 1.0
 --------------------------------------------------
-Este Archivo contiene informacion relevante 
-con respecto a Pol-IP 1.0.
+This file contain relevant information about
+polipd daemon..
 --------------------------------------------------
 
-polipd tiene el parametro -t que no esta documentado, este tiene la funcion de
-no soltar la terminal cuando se inicia el daemon
+polipd use the new network advance routing capabilitis
+so you will need a 2.2/2.4 kernel.
 
-polipconfig no realiza comprobacion de la entrada, lo cual permite crear
-configuraciones en blanco. En caso de algun error simpre es bueno revisar en
-forma manual el archivo de configuracion /etc/polip.conf
-Para compilar polipconfig se necesitan las librerias newt-devel-0.51.0-1
+You need also htb3 that you can find in
 
-polipc si puede producir segmentation fault si no el servidor no esta
-inicializado
+http://luxik.cdi.cz/~devik/qos/htb/
+
+You probably will have to patch iproute2 too the patch it
+is include in the htb3 tar file.
+If you have kernel 2.4.20 you don't have to patch 
+anything.
+
+To compile polipconfig you need newt-devel.0.51.0-1
+To complie polipd you need popt-devel-1.6.3-10

@@ -1,15 +1,18 @@
 ============================================================
-Instrucciones de Instalacion para Pol-IPd 1.0
+Instalation for  Pol-IPd 1.0
 _____________________________________________________________
 
-IMPORTANTE: LEER REQUERIMIENTOS DE SISTEMA EN README
+IMPORTANT: READ THE RELASE-NOTES AND README
 
-Primero en /bin ya estan los binarios precompilados
-Y en /init.d-scripts los scripts para cargar el daemon.
+In /ini.d-scripts is the scripts for redhat services
+In /config is polip.conf.sample
 
-Para compilar siguir los siguientes pasos
+To complie, the usual
 
-cd src
 make clean
 make
 make install
+
+It will install polipd and polipconfig in /usr/bin
+
+Remember to run polipconfig for the config file.
