@@ -167,7 +167,7 @@ int server(struct root *ptrroot,struct grupos *ptrgrp,struct clientes *ptrcli)
 	        statcli->pstats=0;
 	     }
 	     else{
-		     sprintf(tmp,"%s/%d/%d ",statcli->ip,statcli->speed,rate(statcli->rate)/8);
+		     sprintf(tmp,"%s/%d/%d/ ",statcli->ip,statcli->speed,rate(statcli->rate)/8);
 		     strcat(mensaje,tmp);
 	     }
 	    }
