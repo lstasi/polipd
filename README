@@ -11,9 +11,13 @@ Pol-IP is a complete traffic control for a Linux NAT Box
 
 polipd is a daemon that config the kernel and mantain a statics 
 services for multiplataform clients.
+
 The daemon read the config from /etc/polip.conf
 
 To create the config file you can use polipconfig. It is a 
 simple wizard made with gnewt.
 
+try
+
+polip.sourceforge.net
 
