@@ -125,7 +125,7 @@ int readconf (struct root **ptr,struct grupos **ptg,struct clientes **ptc)
 		strcpy(tempcli->borrow,cnl((strchr(&templine[0],'='))+1));
 		fgets(&templine[0],200,confile);
 		strcpy(tempcli->ip,cnl((strchr(&templine[0],'='))+1));
-		tempcli->pstats=1;
+		tempcli->pstats=0;
 		tempcli->tstats=0;
 		tempcli->speed=0;
 		tempcli->nxt=NULL;
