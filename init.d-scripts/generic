@@ -1,0 +1,16 @@
+#!/bin/sh
+
+case "$1" in
+ start)
+  echo -n "Starting Polipd  Server..."
+  /usr/bin/polipd -d > /dev/null
+ ;;
+ stop)
+  echo -n "Terminating Polipd Server..."
+  killall -QUIT polipd
+ ;;
+ *)
+ echo "usage: $0 start|stop"
+esac
+
+echo " done."

@@ -1,0 +1,187 @@
+#Config file for polipd
+#This file must be in /etc/polip.conf
+#The parser is not finish so try to mantain the structure of the file
+#Netdevice is the local network device
+#Linkdevice is the internet device
+#The parent of a group or client must be before them
+#Borrow means it can use the bandwhit not used by other clients
+#
+#Archivo de configuracion para polip
+#Este archivo de estar en /etc
+#El parser del archivo de configuracion no esta totalmente terminado por lo cual
+#es recomendable mantener la estructura que se muestra sin dejar espacion en blanco
+#Netdevice es el dispositivo conectado a la red local
+#Likndevice es el dispositivo conectado a internet no hace falta que este conectado siempre
+#Los clientes o grupos con parent que no exista no seran cargados
+#No colocar clientes o grupos con parent que estaran despues de los mismos
+#Borrow significa que este cliente o grupo puede pedir prestado ancho de banda a otros del mismo nivel
+#Se pueden cargar clientes a root sin crear ningun grupo
+
+#kbps Kilobyte per second
+#mbps Megabyte per second
+#kbit Kilobits per second
+#mbit Megabits per second
+#bps  Bits per second
+#
+#
+###Root Structure
+#
+[root]
+netdevice=eth0
+netspeed=10mbit
+linkdevice=ppp0
+linkspeed=53kbit
+#
+#
+#Grupo
+#
+[grupo]
+name=Facultad
+parent=root
+rate=30kbit
+borrow=yes
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Akira
+parent=root
+rate=26kbit
+borrow=yes
+ip=192.168.1.3
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Familia
+parent=root
+rate=26kbit
+borrow=yes
+ip=192.168.1.6
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Ing.30
+parent=Facultad
+rate=10kbit
+borrow=yes
+ip=192.168.1.30
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Ing.31
+parent=Facultad
+rate=10kbit
+borrow=yes
+ip=192.168.1.31
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Ing.32
+parent=Facultad
+rate=10kbit
+borrow=yes
+ip=192.168.1.32
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Ing.33
+parent=Facultad
+rate=10kbit
+borrow=yes
+ip=192.168.1.33
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Ing.34
+parent=Facultad
+rate=10kbit
+borrow=yes
+ip=192.168.1.34
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Ing.35
+parent=Facultad
+rate=10kbit
+borrow=yes
+ip=192.168.1.35
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Ing.36
+parent=Facultad
+rate=10kbit
+borrow=yes
+ip=192.168.1.36
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Ing.37
+parent=Facultad
+rate=10kbit
+borrow=yes
+ip=192.168.1.37
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Ing.38
+parent=Facultad
+rate=10kbit
+borrow=yes
+ip=192.168.1.38
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Ing.39
+parent=Facultad
+rate=10kbit
+borrow=yes
+ip=192.168.1.39
+
+
+#
+#Cliente
+#
+[Cliente]
+name=Ing.40
+parent=Facultad
+rate=10kbit
+borrow=yes
+ip=192.168.1.40
+
+

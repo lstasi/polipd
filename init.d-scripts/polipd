@@ -1,0 +1,41 @@
+#!/bin/sh
+# Startup script for Polip
+#
+# chkconfig: 345 50 50
+# description: Polipd Script
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+[ -f /usr/bin/polipd ] || exit 0
+
+case "$1" in
+  start)
+		echo -n  "Starting Polipd: " 
+		daemon polipd -d
+		echo
+		;;
+	
+  stop)
+		echo -n "Shutting down Polipd:"
+		killproc polipd 
+		echo
+		;;
+	
+	status)
+		status polipd
+		;;
+
+	restart)
+		$0 stop
+		$0 start
+		;;
+	
+  *)
+		echo "Usage: polipd  {start|stop|restart|status}"
+		exit 1
+
+esac
+
+exit 0
+

@@ -1,0 +1,42 @@
+#! /bin/sh
+# Copyright (c) 1995-1998 S.u.S.E. GmbH Fuerth, Germany.
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+[ ${NETWORKING} = "no" ] && exit 0
+
+# Check that mserver.conf exists.
+[ -f /etc/polip.conf ] || exit 0
+
+case "$1" in
+    start)
+	echo "Starting Polipd."
+	/usr/bin/polipd -d
+	;;
+    stop)
+	echo -n "Shutting down Polipd: "
+	killproc /usr/bin/polipd
+	echo
+	;;
+    restart|reload)
+	$0 stop
+	$0 start
+	;;
+    check|status)
+	echo -n "Checking for Polipd, pid is: "
+	pidof /usr/bin/polipd
+	echo
+	;;
+    *)
+	echo "Usage: $0 {start|stop|restart|check}"
+	exit 1
+	;;
+esac
+
+exit 0
+
