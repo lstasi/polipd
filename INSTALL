@@ -27,6 +27,8 @@ route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0
 
 eth0 or the device for the local network
 
+Don't Forget to patch the kernel for HTB3
+
 
 It will install polipd and polipconfig in /usr/bin
 
