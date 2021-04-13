@@ -114,7 +114,7 @@ int setup (struct root *ptrroot,struct grupos *ptrgrp,struct clientes *ptrcli)
     char command[200];
     struct grupos *tempgrp;
     struct clientes *tempcli;
-    int hangoff;
+    //int hangoff;
     FILE *loger;
     
     
@@ -183,7 +183,7 @@ int setup (struct root *ptrroot,struct grupos *ptrgrp,struct clientes *ptrcli)
     system(command);    
     
 
-    //Clase Basica del tamaño del link de internet 
+    //Clase Basica del tamaÃ±o del link de internet
 
     sprintf(command,"tc class  add dev %s parent %d:0 classid %d:%d htb rate %s",
             ptrroot->netdevice,ptrroot->handle,ptrroot->handle,ptrroot->handle+2,ptrroot->linkspeed);
@@ -194,7 +194,7 @@ int setup (struct root *ptrroot,struct grupos *ptrgrp,struct clientes *ptrcli)
     //ejecuto el command
     system(command);
 
-    hangoff=0;
+    //hangoff=0;
     tempgrp=ptrgrp;
         
     while(tempgrp!=NULL)
@@ -214,7 +214,7 @@ int setup (struct root *ptrroot,struct grupos *ptrgrp,struct clientes *ptrcli)
      }//Fin while grupos
 
 	    
-    hangoff=0;
+    //hangoff=0;
     tempcli=ptrcli;
     
     while(tempcli!=NULL)
