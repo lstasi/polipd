@@ -56,7 +56,7 @@ int server(struct root *ptrroot,struct grupos *ptrgrp,struct clientes *ptrcli)
  int socketin,socketout,rst;
  struct timeval tiempo;
  fd_set set;
- size_t size;
+ socklen_t size;
  char message [64];
  struct sockaddr_in addrin,addrout;
  struct clientes *statcli;

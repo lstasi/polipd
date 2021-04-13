@@ -27,10 +27,10 @@
 ###Root Structure
 #
 [root]
-netdevice=eth0
-netspeed=10mbit
-linkdevice=ppp0
-linkspeed=256kbit
+netdevice=eth1
+netspeed=1gbit
+linkdevice=eth0
+linkspeed=100mbit
 #
 #
 #Grupo
@@ -38,7 +38,7 @@ linkspeed=256kbit
 [grupo]
 name=Group
 parent=root
-rate=186kbit
+rate=10mbit
 borrow=yes
 
 
@@ -48,7 +48,7 @@ borrow=yes
 [Cliente]
 name=clientroot1
 parent=root
-rate=20kbit
+rate=20mbit
 borrow=yes
 ip=192.168.1.30
 
@@ -59,7 +59,7 @@ ip=192.168.1.30
 [Cliente]
 name=clientroot2
 parent=root
-rate=50kbit
+rate=50mbit
 borrow=yes
 ip=192.168.1.41
 
@@ -70,7 +70,7 @@ ip=192.168.1.41
 [Cliente]
 name=clients.60
 parent=Group
-rate=62kbits
+rate=60mbits
 borrow=yes
 ip=192.168.1.60
 
@@ -81,7 +81,7 @@ ip=192.168.1.60
 [Cliente]
 name=clients.61
 parent=Group
-rate=62kbits
+rate=60mbits
 borrow=yes
 ip=192.168.1.61
 
@@ -92,7 +92,7 @@ ip=192.168.1.61
 [Cliente]
 name=clients.62
 parent=Group
-rate=62kbits
+rate=60mbits
 borrow=yes
 ip=192.168.1.62
 

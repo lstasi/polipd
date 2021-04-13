@@ -57,7 +57,7 @@ int main (int argc, char **argv)
 		  //printf("\nDaemon Start\n");
 		  if(fork()==0){
 		    if(readconf(ptr,ptg,ptc)!=0){
-			  fprintf(stderr,"Polipd Error: /etc/polipc.conf");
+			  fprintf(stderr,"Polipd Error: /etc/polip.conf");
 			  exit(0);
 		    }		
   		   strcpy(rootdev,ptroot->netdevice); //Para ExitCleanUP
@@ -75,7 +75,7 @@ int main (int argc, char **argv)
 		  break;
           case 't':
 	  	  if(readconf(ptr,ptg,ptc)!=0){
-			 fprintf(stderr,"Polipd Error: /etc/polipc.conf");
+			 fprintf(stderr,"Polipd Error: /etc/polip.conf");
 		         exit(0);
 		  }
   		  strcpy(rootdev,ptroot->netdevice); //Para ExitCleanUP

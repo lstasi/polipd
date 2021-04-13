@@ -71,7 +71,7 @@ void changeH(char *old,char *new,struct grupos **ptg,struct clientes **ptc)
 void changeC(struct clientes *tmpcli) //Cambiar Clientes
 {
  struct newtExitStruct salida;
- char **field=NULL;
+ const char **field=NULL;
  newtComponent formulario,componente[16];
  int i;
  
@@ -143,7 +143,7 @@ void changeC(struct clientes *tmpcli) //Cambiar Clientes
 void changeG(struct grupos *tempgrp,struct grupos **ptg,struct clientes **ptc)//Cambiar Grupos
 {
  struct newtExitStruct salida;
- char **field=NULL;
+ const char **field=NULL;
  newtComponent formulario,componente[14];
  int i;
  
@@ -272,7 +272,7 @@ void AddMC(struct clientes **ptc)//Agregar Varios Clientes Simultaneamente
 {
  struct newtExitStruct salida;
  struct clientes *tmpcli;
- char **field=NULL;
+ const char **field=NULL;
  char namec[20],ipc[25],borrowc[5],ipf[25],ipl[25];
  long int ipf1,ipf2,ipf3,ipf4,ipl1,ipl2,ipl3,ipl4;
  newtComponent formulario,componente[16];
@@ -372,7 +372,7 @@ void AddC(struct clientes **ptc) //Agregar Clientes
 {
  struct newtExitStruct salida;
  struct clientes *tmpcli;
- char **field=NULL;
+ const char **field=NULL;
  newtComponent formulario,componente[16];
  int i;
 
@@ -446,7 +446,7 @@ void AddG(struct grupos **ptg)//Agregar Grupo
 
  struct newtExitStruct salida;
  struct grupos *tempgrp;
- char **field=NULL;
+ const char **field=NULL;
  newtComponent formulario,componente[14];
  int i;
   
@@ -790,7 +790,7 @@ int NetConfig(struct root **ptr,struct grupos **ptg,struct clientes **ptc)//Pant
   newtComponent formulario,componente[12];
   int i,resultado;
   struct newtExitStruct salida;
-  char **ptchar=NULL;
+  const char **ptchar=NULL;
   struct root *ptroot;
   
    if(*ptr==NULL)
@@ -801,7 +801,8 @@ int NetConfig(struct root **ptr,struct grupos **ptg,struct clientes **ptc)//Pant
   newtCenteredWindow(70,20,"Devices Config");
   formulario=newtForm(NULL,NULL,0);
   
-  componente[0]=newtTextboxReflowed(1,1,"Please set up the devices\nDevices: eth0,eth1,ppp0,tr0\nSpeed: kbit,mbit,bps (no blanks)", 60, 10, 10, 0);
+  char *title="Please set up the devices\nDevices: eth0,eth1,ppp0,tr0\nSpeed: kbit,mbit,bps (no blanks)";
+  componente[0]=newtTextboxReflowed(1,1,title, 60, 10, 10, 0);
   componente[1]=newtTextboxReflowed(3,5,"Internet Device", 60, 10, 10, 0);
   componente[2]=newtLabel(5,7,"Device:");
   componente[3]=newtLabel(5,8,"Speed:");
@@ -853,7 +854,7 @@ int main(void)
  ptc=&ptcli; 
  
  if(readconf(ptr,ptg,ptc)!=0){
-	  fprintf(stderr,"Polipd Error: /etc/polipc.conf");
+	  fprintf(stderr,"Polipd Error: /etc/polip.conf");
 	  exit(0);
  }	
  
