@@ -2,7 +2,7 @@
 
 char * itoa(int i)
 {
- char *c;
+ char *c=NULL;
  sprintf(c,"%d",i);
  return c;
 }
